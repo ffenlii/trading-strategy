@@ -1,0 +1,32 @@
+@use "../utils/variables" as *;
+
+.category {
+  padding: 60px 0;
+  background-color: var(--color-background);
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      gap: 14px;
+    }
+  }
+}
+
+.test {
+  @media screen and (min-width: $bp-tablet) {
+    width: calc(50% - 14px);
+  }
+
+  @media screen and (min-width: $bp-desktop) {
+    width: calc(33% - 8px);
+  }
+}

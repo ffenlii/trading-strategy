@@ -1,0 +1,53 @@
+@use "../utils/variables" as *;
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__label {
+    color: var(--color-grey);
+
+    @media screen and (min-width: $bp-mobile) {
+      font-size: 20px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 24px;
+    }
+  }
+
+  &__field {
+    border-radius: 6px;
+    border: 1px solid var(--color-grey);
+    padding: 8px;
+    font-size: 16px;
+    outline: none;
+
+    @media screen and (min-width: $bp-mobile) {
+      font-size: 18px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 24px;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+
+      @media screen and (min-width: $bp-mobile) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: $bp-tablet) {
+        font-size: 22px;
+      }
+    }
+  }
+}

@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading strategy</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+
+    <!-- Підключення Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+      // ключі
+      const firebaseConfig = {
+        apiKey: "AIzaSyC1ZlpGIKrSRCccVqd6mYjmyPDYiAGF2Rw",
+        authDomain: "trandingsite-f037c.firebaseapp.com",
+        projectId: "trandingsite-f037c",
+        storageBucket: "trandingsite-f037c.firebasestorage.app",
+        messagingSenderId: "694832942760",
+        appId: "1:694832942760:web:cc3c89c77b958916a23c9d",
+      };
+
+      // Ініціалізація бази даних
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="./index.html">
+        <img class="header__logo" src="./images/logo.png" alt=""
+      /></a>
+      <svg class="header__menu modal-btn-open">
+        <use href="./images/icons-sprite.svg#icon-more"></use>
+      </svg>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">Trading strategy</h1>
+        </div>
+      </section>
+      <section class="category">
+        <div class="container">
+          <ul class="category__list">
+            <li class="test">
+              <a class="category-card" href="./smart-money.html">
+                <div class="category-card__link">
+                  <h2>База Smart Money</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Основа логіки ціни, ліквідності та ринкової структури
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./market-context.html">
+                <div class="category-card__link">
+                  <h2>Контекст і читання ринку</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Як бачити картину ринку, а не окремі частини
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./setups-and-entry.html">
+                <div class="category-card__link">
+                  <h2>Сетапи та точки входу</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Де шукати сильні сетапи та якісні входи
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./risk-management.html">
+                <div class="category-card__link">
+                  <h2>Ризик-менеджмент і ведення угоди</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Як керувати ризиком, стопом, тейком і позицією
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./psychology.html">
+                <div class="category-card__link">
+                  <h2>Психологія та помилки трейдера</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Помилки мислення, емоції та дисципліна у трейдингу
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./trading-plan.html">
+                <div class="category-card__link">
+                  <h2>Торгова система та торговий план</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Як зібрати систему та план, а не торгувати хаотично
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./backtest-practice.html">
+                <div class="category-card__link">
+                  <h2>Бекстест і практика на графіку</h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Практика на графіку, бектести та розбір логіки угод
+                </p>
+              </a>
+            </li>
+            <li class="test">
+              <a class="category-card" href="./prop-trading.html">
+                <div class="category-card__link">
+                  <h2>
+                    <span class="category-card__accent">prop</span> трейдинг
+                  </h2>
+                  <svg class="category-card__icon">
+                    <use href="./images/icons-sprite.svg#icon-arrow"></use>
+                  </svg>
+                </div>
+                <p class="category-card__text">
+                  Як працює проп-трейдинг, де є ризики і шанс.
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!--Меню header  -->
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <div class="modal__user-profile">
+          <svg class="modal__login">
+            <use href="./images/icons-sprite.svg#icon-user"></use>
+          </svg>
+          <span class="modal__username" id="displayUsername">Гість</span>
+        </div>
+
+        <svg class="modal__close modal-btn-close">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <ul class="modal__list">
+          <li>
+            <a class="modal__link" href="./index.html">На головну сторінку</a>
+          </li>
+          <li>
+            <a class="modal__link" href="./smart-money.html"
+              >База Smart Money</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./market-context.html">
+              Контекст і читання ринку</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./setups-and-entry.html"
+              >Сетапи і точки входу</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./risk-management.html"
+              >Ризик-менеджмент та ведення угоди</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./psychology.html"
+              >Психологія та помилки трейдера</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./trading-plan.html"
+              >Торгова система і торговий план</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./backtest-practice.html"
+              >Бектест і практика на графіку</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./prop-trading.html">PROP трейдинг</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Вхід/реєстрація -->
+    <div class="backdrop is-hidden" id="authBackdrop">
+      <div class="modal modal__user modal-user">
+        <svg class="modal-user__icon modal-user__back btnBack">
+          <use href="./images/icons-sprite.svg#icon-back"></use>
+        </svg>
+
+        <div class="modal-user__choose">
+          <button class="user__button active" id="tabRegister" type="button">
+            <svg class="user__button--icon">
+              <use href="./images/icons-sprite.svg#icon-sign-in"></use>
+            </svg>
+          </button>
+          <button class="user__button" id="tabLogin" type="button">
+            <svg class="user__button--icon">
+              <use href="./images/icons-sprite.svg#icon-login"></use>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Форма Входу -->
+        <form class="user-form" id="formLogin">
+          <div class="user-form__group">
+            <label class="user-form__label" for="loginUsername">Логін</label>
+            <input
+              class="user-form__input"
+              type="text"
+              id="loginUsername"
+              required
+              placeholder="Введіть логін"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="loginPassword">Пароль</label>
+            <input
+              class="user-form__input"
+              type="password"
+              id="loginPassword"
+              required
+              placeholder="Введіть пароль"
+            />
+          </div>
+          <p class="user-form__error" id="loginError"></p>
+          <button class="user-form__submit" type="submit">Увійти</button>
+        </form>
+
+        <!-- Форма Реєстрації -->
+        <form class="user-form is-hidden" id="formRegister">
+          <div class="user-form__group">
+            <label class="user-form__label" for="regUsername"
+              >Придумайте логін</label
+            >
+            <input
+              class="user-form__input"
+              type="text"
+              id="regUsername"
+              required
+              placeholder="Логін"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPassword">Пароль</label>
+            <input
+              class="user-form__input"
+              type="password"
+              id="regPassword"
+              required
+              placeholder="Пароль"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPasswordConfirm"
+              >Повторіть пароль</label
+            >
+            <input
+              class="user-form__input"
+              type="password"
+              id="regPasswordConfirm"
+              required
+              placeholder="Повторіть пароль"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPhone"
+              >Номер телефону:</label
+            >
+            <input
+              class="user-form__input"
+              type="tel"
+              id="regPhone"
+              placeholder="+380XXXXXXXXX"
+              required
+            />
+          </div>
+          <p class="user-form__error" id="regError"></p>
+          <button class="user-form__submit" type="submit">
+            Зареєструватися
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
+    <script src="./js/auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+.post {
+  background-color: var(--color-background);
+  padding: 60px 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: var(--color-white);
+  }
+}

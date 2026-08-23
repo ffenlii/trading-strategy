@@ -1,0 +1,50 @@
+@use "../utils/variables" as *;
+
+.main {
+  padding: 90px 0 40px;
+
+  @media screen and (min-width: $bp-mobile) {
+    padding: 100px 0 72px;
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    padding: 130px 0 90px;
+  }
+
+  @media screen and (min-width: $bp-desktop) {
+    padding: 160px 0 130px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    color: var(--color-white);
+
+    @media screen and (min-width: $bp-mobile) {
+      font-size: 35px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 42px;
+    }
+  }
+
+  &__text {
+    color: var(--color-grey);
+
+    @media screen and (min-width: $bp-mobile) {
+      font-size: 20px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 24px;
+    }
+  }
+
+  &__container {
+    @media screen and (min-width: $bp-tablet) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

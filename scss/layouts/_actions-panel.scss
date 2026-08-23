@@ -1,0 +1,29 @@
+@use "../utils/variables" as *;
+
+.actions-panel {
+  background-color: transparent;
+  position: fixed;
+  right: 30px;
+  bottom: 0;
+  width: 30px;
+  height: 30px;
+
+  &.is-hidden {
+    /* Щоб заховати модальне вікно */
+    opacity: 0;
+    /* Чи буде елемент видимий для браузера */
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__icon {
+    width: 26px;
+    height: 26px;
+    fill: var(--color-white);
+
+    @media screen and (min-width: $bp-tablet) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}

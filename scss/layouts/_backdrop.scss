@@ -1,0 +1,26 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Щоб модальне вікно всередині не прилипало до країв екрану вгорі та внизу */
+  padding: 20px;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+  z-index: 2;
+  overflow-y: auto;
+
+  &.is-hidden {
+    /* Щоб заховати модальне вікно */
+    opacity: 0;
+    /* Чи буде елемент видимий для браузера */
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

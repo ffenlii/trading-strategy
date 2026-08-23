@@ -1,0 +1,22 @@
+.modal-user {
+  &__icon {
+    fill: var(--color-white);
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 16px;
+  }
+
+  &__back {
+    left: 20px;
+  }
+
+  &__choose {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+}

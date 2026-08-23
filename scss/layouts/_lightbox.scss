@@ -1,0 +1,90 @@
+@use "../utils/variables" as *;
+
+.lightbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  &__image {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  &__close {
+    position: absolute;
+    top: -10px;
+    right: 4px;
+    background: var(--color-purple);
+    border: 1px solid var(--color-grey);
+    padding: 6px;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 36px;
+    cursor: pointer;
+    z-index: 4;
+
+    @media screen and (min-width: $bp-tablet) {
+      width: 50px;
+      height: 50px;
+      top: 0;
+      right: 16px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 28px;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    &--prev {
+      left: 20px;
+    }
+
+    &--next {
+      right: 20px;
+    }
+  }
+
+  &__download {
+    fill: var(--color-white);
+    width: 36px;
+    height: 36px;
+
+    @media screen and (min-width: $bp-tablet) {
+      width: 44px;
+      height: 44px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      width: 50px;
+      height: 50px;
+      left: 18px;
+    }
+  }
+}

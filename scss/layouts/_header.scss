@@ -1,0 +1,49 @@
+@use "../utils/variables" as *;
+
+.header {
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-black);
+  position: fixed;
+  z-index: 1;
+  left: 8px;
+  top: 0;
+  right: 8px;
+  box-shadow: 0px 4px 20px 2px var(--color-black);
+
+  @media screen and (min-width: $bp-tablet) {
+    padding: 10px;
+  }
+
+  &__logo {
+    width: 72px;
+
+    @media screen and (min-width: $bp-tablet) {
+      width: 80px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      width: 106px;
+    }
+  }
+
+  &__menu {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-white);
+    fill: var(--color-white);
+    border-radius: 50%;
+
+    @media screen and (min-width: $bp-tablet) {
+      width: 46px;
+      height: 46px;
+    }
+
+    @media screen and (min-width: $bp-desktop) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

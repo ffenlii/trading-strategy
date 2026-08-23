@@ -1,0 +1,49 @@
+@use "../utils/variables" as *;
+
+.category-card {
+  background-image: url(../../images/category-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid var(--color-grey);
+  border-radius: 16px;
+  padding: 24px 16px 0;
+  height: 210px;
+  background-color: var(--color-background);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__icon {
+    fill: var(--color-white);
+    width: 30px;
+    height: 30px;
+  }
+
+  &__link {
+    color: var(--color-white);
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 16px;
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 18px;
+    }
+  }
+
+  &__text {
+    color: var(--color-grey);
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: auto;
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 16px;
+    }
+  }
+
+  &__accent {
+    text-transform: uppercase;
+  }
+}

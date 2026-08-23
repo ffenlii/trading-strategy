@@ -1,0 +1,136 @@
+@use "../utils/variables" as *;
+
+.modal {
+  position: relative;
+  max-width: 880px;
+  width: 95%;
+  margin: auto 0;
+  max-height: 880px;
+  height: auto;
+  padding: 90px 48px 48px;
+  background-color: var(--color-purple);
+  border: 1px solid var(--color-grey);
+  box-shadow: 0 0 10px 0 var(--color-grey);
+  border-radius: 32px;
+  /* Щоб скролити модальне вікно */
+  overflow-y: auto;
+
+  @media screen and (min-width: $bp-mobile) {
+    max-width: 420px;
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 512px;
+  }
+
+  &__user {
+    @media screen and (min-width: $bp-tablet) {
+      max-width: 400px;
+    }
+  }
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-white);
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    cursor: pointer;
+    transition: fill 0.3s;
+
+    &:hover {
+      fill: var(--color-grey);
+    }
+  }
+
+  &__login {
+    fill: var(--color-white);
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    padding: 6px;
+    transition:
+      transform 0.3s,
+      background 0.2s;
+
+    &:hover {
+      transform: scale(1.07);
+      background: var(--color-grey);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+
+    @media screen and (min-width: $bp-tablet) {
+      align-items: center;
+      gap: 28px;
+    }
+  }
+
+  &__link {
+    color: var(--color-white);
+    font-size: 18px;
+
+    @media screen and (min-width: $bp-mobile) {
+      font-size: 20px;
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 22px;
+    }
+
+    &:hover {
+      color: var(--color-grey);
+      text-decoration: underline;
+    }
+  }
+
+  &__username {
+    position: absolute;
+    top: 30px;
+    left: 72px;
+    color: var(--color-grey);
+    font-size: 20px;
+  }
+
+  &-edit {
+    padding: 60px 36px 40px;
+    max-width: 340px;
+
+    @media screen and (min-width: $bp-tablet) {
+      max-width: 390px;
+    }
+
+    &__title {
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+
+    &__subtitle {
+      color: var(--color-grey);
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  }
+
+  &__delete {
+    padding: 60px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

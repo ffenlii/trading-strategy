@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ua">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>risk-management</title>
+
+    <link rel="stylesheet" href="./css/main.min.css" />
+
+    <!-- Підключення Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+      // ключі
+      const firebaseConfig = {
+        apiKey: "AIzaSyC1ZlpGIKrSRCccVqd6mYjmyPDYiAGF2Rw",
+        authDomain: "trandingsite-f037c.firebaseapp.com",
+        projectId: "trandingsite-f037c",
+        storageBucket: "trandingsite-f037c.firebasestorage.app",
+        messagingSenderId: "694832942760",
+        appId: "1:694832942760:web:cc3c89c77b958916a23c9d",
+      };
+
+      // Ініціалізація бази даних
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+  </head>
+  <body data-category="risk-management">
+    <header class="header">
+      <a href="./risk-management.html">
+        <img class="header__logo" src="./images/logo.png" alt=""
+      /></a>
+      <svg class="header__menu modal-btn-open">
+        <use href="./images/icons-sprite.svg#icon-more"></use>
+      </svg>
+    </header>
+    <main>
+      <section class="hero main">
+        <div class="container">
+          <div class="main__container">
+            <h1 class="main__title">Ризик-менеджмент і ведення угоди</h1>
+            <p class="main__text">
+              Як керувати ризиком, стопом, тейком і позицією
+            </p>
+          </div>
+          <button class="change__button btn-change" type="button">
+            <svg class="change__button-icon">
+              <use href="./images/icons-sprite.svg#icon-pencil"></use>
+            </svg>
+          </button>
+        </div>
+      </section>
+      <section class="post">
+        <div class="container">
+          <div class="post__container">
+            <p class="post-card">This is your post</p>
+            <p class="post-card">This is your post</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--Меню header  -->
+    <div class="backdrop is-hidden">
+      <div class="modal">
+        <div class="modal__user-profile">
+          <svg class="modal__login">
+            <use href="./images/icons-sprite.svg#icon-user"></use>
+          </svg>
+          <span class="modal__username" id="displayUsername">Гість</span>
+        </div>
+
+        <svg class="modal__close modal-btn-close">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <ul class="modal__list">
+          <li>
+            <a class="modal__link" href="./index.html">На головну сторінку</a>
+          </li>
+          <li>
+            <a class="modal__link" href="./smart-money.html"
+              >База Smart Money</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./market-context.html">
+              Контекст і читання ринку</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./setups-and-entry.html"
+              >Сетапи і точки входу</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./risk-management.html"
+              >Ризик-менеджмент та ведення угоди</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./psychology.html"
+              >Психологія та помилки трейдера</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./trading-plan.html"
+              >Торгова система і торговий план</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./backtest-practice.html"
+              >Бектест і практика на графіку</a
+            >
+          </li>
+          <li>
+            <a class="modal__link" href="./prop-trading.html">PROP трейдинг</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Вхід/реєстрація -->
+    <div class="backdrop is-hidden" id="authBackdrop">
+      <div class="modal modal__user modal-user">
+        <svg class="modal-user__icon modal-user__back btnBack">
+          <use href="./images/icons-sprite.svg#icon-back"></use>
+        </svg>
+
+        <div class="modal-user__choose">
+          <button class="user__button active" id="tabRegister" type="button">
+            <svg class="user__button--icon">
+              <use href="./images/icons-sprite.svg#icon-sign-in"></use>
+            </svg>
+          </button>
+          <button class="user__button" id="tabLogin" type="button">
+            <svg class="user__button--icon">
+              <use href="./images/icons-sprite.svg#icon-login"></use>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Форма Входу -->
+        <form class="user-form" id="formLogin">
+          <div class="user-form__group">
+            <label class="user-form__label" for="loginUsername">Логін</label>
+            <input
+              class="user-form__input"
+              type="text"
+              id="loginUsername"
+              required
+              placeholder="Введіть логін"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="loginPassword">Пароль</label>
+            <input
+              class="user-form__input"
+              type="password"
+              id="loginPassword"
+              required
+              placeholder="Введіть пароль"
+            />
+          </div>
+          <p class="user-form__error" id="loginError"></p>
+          <button class="user-form__submit" type="submit">Увійти</button>
+        </form>
+
+        <!-- Форма Реєстрації -->
+        <form class="user-form is-hidden" id="formRegister">
+          <div class="user-form__group">
+            <label class="user-form__label" for="regUsername"
+              >Придумайте логін</label
+            >
+            <input
+              class="user-form__input"
+              type="text"
+              id="regUsername"
+              required
+              placeholder="Логін"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPassword">Пароль</label>
+            <input
+              class="user-form__input"
+              type="password"
+              id="regPassword"
+              required
+              placeholder="Пароль"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPasswordConfirm"
+              >Повторіть пароль</label
+            >
+            <input
+              class="user-form__input"
+              type="password"
+              id="regPasswordConfirm"
+              required
+              placeholder="Повторіть пароль"
+            />
+          </div>
+          <div class="user-form__group">
+            <label class="user-form__label" for="regPhone"
+              >Номер телефону:</label
+            >
+            <input
+              class="user-form__input"
+              type="tel"
+              id="regPhone"
+              placeholder="+380XXXXXXXXX"
+              required
+            />
+          </div>
+          <p class="user-form__error" id="regError"></p>
+          <button class="user-form__submit" type="submit">
+            Зареєструватися
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Дії з постами -->
+    <div class="actions-panel is-hidden">
+      <button class="actions__button actions-panel__btn edit" type="button">
+        <svg class="actions-panel__icon">
+          <use href="./images/icons-sprite.svg#icon-edit"></use>
+        </svg>
+      </button>
+      <button class="actions__button actions-panel__btn add" type="button">
+        <svg class="actions-panel__icon">
+          <use href="./images/icons-sprite.svg#icon-plus"></use>
+        </svg>
+      </button>
+      <button class="actions__button actions-panel__btn delete" type="button">
+        <svg class="actions-panel__icon actions__button--bin">
+          <use href="./images/icons-sprite.svg#icon-bin"></use>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Модальне вікно для створення поста -->
+    <div class="backdrop is-hidden" id="postModal">
+      <div class="modal post-modal">
+        <svg class="modal__close" id="closePostModal">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <h2 class="post-modal__title">Створити новий пост</h2>
+
+        <form class="post-form" id="postForm">
+          <div class="post-form__group">
+            <label class="post-form__label" for="postTitle">Заголовок:</label>
+            <input
+              class="post-form__field"
+              type="text"
+              id="postTitle"
+              required
+              placeholder="Введіть заголовок..."
+            />
+          </div>
+
+          <div class="post-form__group">
+            <label class="post-form__label" for="postText">Текст:</label>
+            <textarea
+              class="post-form__field"
+              id="postText"
+              rows="6"
+              required
+              placeholder="Введіть текст..."
+            ></textarea>
+          </div>
+
+          <div class="post-form__group">
+            <span class="post-form__label">Оберіть фото:</span>
+
+            <!-- Прихований інпут -->
+            <input
+              type="file"
+              id="postImages"
+              accept="image/*"
+              multiple
+              class="is-hidden"
+            />
+
+            <!-- Кастомна кнопка-label -->
+            <label
+              class="choose-files__button file-upload-btn"
+              for="postImages"
+            >
+              Вибрати файли
+            </label>
+          </div>
+          <!-- Контейнер для попереднього перегляду доданих фото -->
+          <div class="preview-container" id="previewContainer"></div>
+
+          <button class="post-form__submit" type="submit">Опублікувати</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Модальне вікно для перегляду фото на весь екран -->
+    <div class="backdrop is-hidden" id="lightboxModal">
+      <div class="lightbox">
+        <!-- <button class="lightbox__close" id="closeLightbox" type="button">
+          &times;
+        </button> -->
+        <svg class="modal__close lightbox__close" id="closeLightbox">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <a
+          id="downloadImageBtn"
+          class="download__button lightbox__download-btn"
+          download="image.jpg"
+        >
+          <svg class="lightbox__download">
+            <use href="./images/icons-sprite.svg#icon-download"></use>
+          </svg>
+        </a>
+        <button
+          class="lightbox__btn lightbox__btn--prev"
+          id="prevImage"
+          type="button"
+        >
+          &#10094;
+        </button>
+
+        <img
+          class="lightbox__image"
+          id="lightboxImage"
+          src=""
+          alt="Full view"
+        />
+
+        <button
+          class="lightbox__btn lightbox__btn--next"
+          id="nextImage"
+          type="button"
+        >
+          &#10095;
+        </button>
+      </div>
+    </div>
+
+    <!-- Для видалення поста -->
+    <!-- Крок 1: Введення ID поста -->
+    <div class="backdrop is-hidden" id="deleteStep1Modal">
+      <div class="modal modal__delete">
+        <svg class="modal__close" id="closeDeleteStep1">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <h2 class="post-modal__title">Видалити пост</h2>
+        <p class="post-modal__subtitle">
+          Введіть ID поста, який ви хочете видалити:
+        </p>
+
+        <input
+          type="number"
+          id="deletePostIdInput"
+          class="post-form__field"
+          placeholder="Наприклад: 1"
+          min="1"
+        />
+
+        <button
+          type="button"
+          id="btnConfirmId"
+          class="post-form__submit shorter"
+          style="margin-top: 15px"
+        >
+          Продовжити
+        </button>
+      </div>
+    </div>
+
+    <!-- Крок 2: Підтвердження видалення -->
+    <div class="backdrop is-hidden" id="deleteStep2Modal">
+      <div class="modal modal__delete">
+        <!-- <button type="button" class="modal__close" id="closeDeleteStep2">
+          &times;
+        </button> -->
+        <svg class="modal__close" id="closeDeleteStep2">
+          <use href="./images/icons-sprite.svg#icon-close"></use>
+        </svg>
+        <h2 class="post-modal__title">Підтвердження</h2>
+        <p
+          class="post-modal__subtitle post-modal__subtitle-delete"
+          id="deleteConfirmText"
+        >
+          Чи ви впевнені, що хочете видалити пост з ID ... ?
+        </p>
+
+        <div style="display: flex; gap: 10px; margin-top: 20px">
+          <button
+            type="button"
+            id="btnFinalDelete"
+            class="post-form__submit post-delete post-delete__agree"
+          >
+            Так, видалити
+          </button>
+          <button
+            type="button"
+            id="btnCancelDelete"
+            class="post-form__submit post-delete post-delete__cancel"
+          >
+            Скасувати
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальне вікно: Введення ID для редагування -->
+    <div class="backdrop is-hidden" id="editStep1Modal">
+      <div class="modal modal-edit">
+        <button type="button" id="closeEditStep1">
+          <svg class="modal__close" id="closePostModal">
+            <use href="./images/icons-sprite.svg#icon-close"></use>
+          </svg>
+        </button>
+        <h2 class="modal-edit__title">Редагувати пост</h2>
+        <p class="modal-edit__subtitle">
+          Введіть ID поста, який ви хочете відредагувати:
+        </p>
+        <div class="modal-edit__group">
+          <input
+            type="number"
+            id="editPostIdInput"
+            class="post-form__field"
+            placeholder="Наприклад: 1"
+            min="1"
+          />
+
+          <button
+            type="button"
+            id="btnConfirmEditId"
+            class="post-form__submit shorter"
+            style="margin-top: 15px"
+          >
+            Продовжити
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/actions-panel.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/posts.js"></script>
+  </body>
+</html>
